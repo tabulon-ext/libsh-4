@@ -22,17 +22,17 @@ function banner() {
 }
 
 function action() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "\n${C_YELLOW}[action]:${C_RESET}\n ⇒ ${msg} ..." 1>&2
 }
 
 function bot() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}" 1>&2
 }
 
 function bot_confirm() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}" 1>&2
   info "Press any key to continue."
   # shellcheck disable=SC2162
@@ -45,12 +45,12 @@ function die() {
 }
 
 function error() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "\a${C_RED}[error]${C_RESET} ${msg}" 1>&2
 }
 
 function info() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "${C_GREEN}[info]${C_RESET} ${msg}" 1>&2
 }
 
@@ -59,16 +59,16 @@ function line() {
 }
 
 function ok() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "${C_GREEN}[ok]${C_RESET} ${msg}" 1>&2
 }
 
 function running() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -en "${C_YELLOW} ⇒ ${C_RESET} ${msg}: " 1>&2
 }
 
 function warn() {
-  local msg="${1:-}"
+  local -r msg="${1:-}"
   echo -e "${C_YELLOW}[warning]${C_RESET} ${msg}" 1>&2
 }

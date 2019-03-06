@@ -6,8 +6,8 @@ function dotbox_file {
 }
 
 function dotbox_write {
-  local content="$1"
-  local file="${2:-"$(dotbox_file)"}"
+  local -r content="$1"
+  local -r file="${2:-"$(dotbox_file)"}"
 
   # try to ensure we don't create duplicate entries in the file
   touch "$file"
@@ -104,10 +104,10 @@ function get_platform() {
 
 #
 # join_by , a "b c" d #a,b c,d
-# join_by / var local tmp #var/local/tmp
+# join_by / var local -r tmp #var/local/tmp
 # join_by , "${FOO[@]}" #a,b,c
 #
-function join_by { local IFS="$1"; shift; echo "$*"; }
+function join_by { local -r IFS="$1"; shift; echo "$*"; }
 
 function profile_file {
   get_platform
@@ -127,8 +127,8 @@ function sudo_write {
 }
 
 function sudo_passwordless {
-  local toggle="$1"
-  local user
+  local -r toggle="$1"
+  local -r user
   user="$(whoami)"
 
   if [ "no" = "$toggle" ]; then

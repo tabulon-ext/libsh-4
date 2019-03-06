@@ -15,7 +15,7 @@ EOF
 
 
 function getSplitDirection() {
-  local DIR="${1:-v}"
+  local -r DIR="${1:-v}"
   case $DIR in
     vertically|v)
       DIR="vertically"
@@ -31,7 +31,7 @@ function getSplitDirection() {
 }
 
 function iterm_addSplit() {
-  local DIR
+  local -r DIR
   DIR=$(getSplitDirection "${1:-v}")
 
   /usr/bin/osascript <<-EOF
@@ -62,7 +62,7 @@ EOF
 
 
 function iterm_write() {
-  local CMD="${1:-ls}"
+  local -r CMD="${1:-ls}"
 
   /usr/bin/osascript <<-EOF
   tell application "iTerm"
