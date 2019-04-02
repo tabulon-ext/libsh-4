@@ -17,23 +17,23 @@ C_CYAN="${ESC_SEQ}36;01m"
 ################################################################################
 
 function banner() {
-  clear
-  echo -e "${C_GREEN}${BANNER}${C_RESET}"
+  TERM=linux clear
+  (>&2 echo -e "${C_GREEN}${BANNER}${C_RESET}")
 }
 
 function action() {
   local -r msg="${1:-}"
-  echo -e "\n${C_YELLOW}[action]:${C_RESET}\n ⇒ ${msg} ..." 1>&2
+  (>&2 echo -e "\n${C_YELLOW}[action]:${C_RESET}\n ⇒ ${msg} ...")
 }
 
 function bot() {
   local -r msg="${1:-}"
-  echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}" 1>&2
+  (>&2 echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}")
 }
 
 function bot_confirm() {
   local -r msg="${1:-}"
-  echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}" 1>&2
+  (>&2 echo -e "\n${C_GREEN}\[._.]/${C_RESET} - ${msg}")
   info "Press any key to continue."
   # shellcheck disable=SC2162
   read
@@ -46,29 +46,29 @@ function die() {
 
 function error() {
   local -r msg="${1:-}"
-  echo -e "\a${C_RED}[error]${C_RESET} ${msg}" 1>&2
+  (>&2 echo -e "\a${C_RED}[error]${C_RESET} ${msg}")
 }
 
 function info() {
   local -r msg="${1:-}"
-  echo -e "${C_GREEN}[info]${C_RESET} ${msg}" 1>&2
+  (>&2 echo -e "${C_GREEN}[info]${C_RESET} ${msg}")
 }
 
 function line() {
-  echo -e "------------------------------------------------------------------------------------"
+  (>&2 echo -e "------------------------------------------------------------------------------------")
 }
 
 function ok() {
   local -r msg="${1:-}"
-  echo -e "${C_GREEN}[ok]${C_RESET} ${msg}" 1>&2
+  (>&2 echo -e "${C_GREEN}[ok]${C_RESET} ${msg}")
 }
 
 function running() {
   local -r msg="${1:-}"
-  echo -en "${C_YELLOW} ⇒ ${C_RESET} ${msg}: " 1>&2
+  (>&2 echo -en "${C_YELLOW} ⇒ ${C_RESET} ${msg}:")
 }
 
 function warn() {
   local -r msg="${1:-}"
-  echo -e "${C_YELLOW}[warning]${C_RESET} ${msg}" 1>&2
+  (>&2 echo -e "${C_YELLOW}[warning]${C_RESET} ${msg}")
 }
