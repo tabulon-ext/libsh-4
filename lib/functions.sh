@@ -102,13 +102,6 @@ function get_platform() {
   fi
 }
 
-#
-# join_by , a "b c" d #a,b c,d
-# join_by / var local -r tmp #var/local/tmp
-# join_by , "${FOO[@]}" #a,b,c
-#
-function join_by { local -r IFS="$1"; shift; echo "$*"; }
-
 function profile_file {
   get_platform
   if [ "$NS_PLATFORM" == "darwin" ]; then
