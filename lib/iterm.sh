@@ -13,7 +13,6 @@ function iterm_launch() {
 EOF
 }
 
-
 function getSplitDirection() {
   local -r DIR="${1:-v}"
   case $DIR in
@@ -59,7 +58,6 @@ function iterm_clear() {
   end tell
 EOF
 }
-
 
 function iterm_write() {
   local -r CMD="${1:-ls}"
